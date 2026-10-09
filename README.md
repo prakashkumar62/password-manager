@@ -79,8 +79,10 @@ The following capabilities are verified and implemented in the current codebase:
 
 ---
 
+
 ## 📸 Screenshots
-![Dashboard Overview](./screenshots/dashboard.png)
+
+![Password Manager Dashboard](./Screenshots/dashboard.png)
 
 ---
 
