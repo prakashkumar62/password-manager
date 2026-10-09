@@ -88,31 +88,17 @@ The following capabilities are verified and implemented in the current codebase:
 
 ## 🏗️ Project Architecture
 
-Currently, the application runs entirely on the client side inside the user's web browser. State operations synchronize React component state with the browser's `localStorage`.
+The application runs on the client side in the user's browser. React manages the interface and application state, while browser `localStorage` persists the data between sessions.
 
 ```mermaid
 flowchart TD
-    subgraph Browser ["Client-Side Browser Runtime"]
-        User(["User Interaction"])
-
-        subgraph ReactApp ["React 19 Application (Vite)"]
-            Navbar["Navbar Component"]
-            Manager["Manager Component (Core UI)"]
-            State[("React State\n(passwordArray, form, showPassword)")]
-        end
-
-        subgraph WebStorage ["Browser Web Storage"]
-            LocalStorage[("window.localStorage\nKey: 'password'")]
-        end
-
-        User -->|Enters Website, User, Pass| Manager
-        Manager -->|Updates Form State| State
-        Manager -->|On Submit| State
-        State -->|Serializes JSON| LocalStorage
-        LocalStorage -->|Mount (useEffect)| State
-        State -->|Renders Table Rows| Manager
-        Manager -->|Toggle / Delete Actions| State
-    end
+    A["User Interaction"] --> B["React Application"]
+    B --> C["Navbar Component"]
+    B --> D["Manager Component"]
+    B --> E["Footer Component"]
+    D --> F["React State"]
+    F --> G["Browser localStorage"]
+    G --> F
 ```
 
 ---
@@ -312,7 +298,7 @@ Planned technical milestones for upcoming iterations include:
 **Prakash Kumar**
 
 - **Portfolio**: [https://prakash-kumar12.netlify.app/](https://prakash-kumar12.netlify.app/)
-- **GitHub**: [https://github.com/prakash-kumar12](https://github.com/prakash-kumar12) *(Confirm your handle)*
+- **GitHub**: [https://github.com/prakash-kumar12](https://github.com/prakash-kumar12)
 
 ---
 
